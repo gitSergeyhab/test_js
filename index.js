@@ -1,19 +1,22 @@
-setTimeout(wake, 5000);
-function wake() {
-    alert("AUUUU!!!!!!");
+
+const numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
+
+let personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+};
+
+
+
+// const movie = {};
+
+for (let i=0; i < 2; i++) {
+    const movieAnswer = prompt('Один из последних просмотренных фильмов?', ''); 
+    const markAnswer = prompt('На сколько оцените его?', '');
+    personalMovieDB.movies[movieAnswer] = markAnswer;
 }
-
-// const ans = prompt("write something", "something")
-
-
-// alert(ans)
-// alert(ans + typeof(ans))
-
-const anss = [];
-anss[0] = prompt("name?", "");
-anss[1] = prompt("last name?", "");
-anss[2] = prompt("age?" , "");
-
-// alert(anss);
-// document.write(anss);
-console.log(anss)
+console.log(personalMovieDB);
+// console.log(movie);
