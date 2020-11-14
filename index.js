@@ -22,3 +22,24 @@ if (personalMovieDB.count < 10) alert("Просмотрено довольно �
 else if (personalMovieDB.count < 31) alert("Вы классический зритель");
 else if (personalMovieDB.count > 30) alert("Вы киноман");
 else alert("Произошла ошибка");
+
+// 3
+
+function showMyDB(pWDB) {
+    if (pWDB.privat == false) {
+        console.log(pWDB);
+    }
+}
+let toLog1 = showMyDB(personalMovieDB);
+console.log(toLog1);
+
+function writeYourGenres(pWDB) {
+    for (let i=1; i<4; i++) {
+        const favGanre = prompt(`Ваш любимый жанр под номером ${i}`);
+        pWDB.genres[i-1] =favGanre;
+    }  
+    return pWDB;
+}
+
+let toLog2 = writeYourGenres(personalMovieDB);
+console.log(toLog2);
