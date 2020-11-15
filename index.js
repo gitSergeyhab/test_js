@@ -9,19 +9,24 @@ let personalMovieDB = {
     genres: [],
     privat: false,
 };
-
-for (let i=0; i < 2; i++) {
-    const movieAnswer = prompt('Один из последних просмотренных фильмов?', ''); 
-    const markAnswer = prompt('На сколько оцените его?', '');
-    if (movieAnswer == '' || markAnswer == '' || movieAnswer.length > 50 || movieAnswer == null || markAnswer == null) i--;
-    else personalMovieDB.movies[movieAnswer] = markAnswer;
+function askAnswer(pmdb) {
+    for (let i=0; i < 2; i++) {
+        const movieAnswer = prompt('Один из последних просмотренных фильмов?', ''); 
+        const markAnswer = prompt('На сколько оцените его?', '');
+        if (movieAnswer == '' || markAnswer == '' || movieAnswer.length > 50 || movieAnswer == null || markAnswer == null) i--;
+        else pmdb.movies[movieAnswer] = markAnswer;
+    }
+    return pmdb;
 }
-console.log(personalMovieDB);
 
-if (personalMovieDB.count < 10) alert("Просмотрено довольно мало фильмов");
-else if (personalMovieDB.count < 31) alert("Вы классический зритель");
-else if (personalMovieDB.count > 30) alert("Вы киноман");
-else alert("Произошла ошибка");
+//console.log(personalMovieDB);
+function filmsAndYou(pmdb) {
+   if (pmdb.count < 10) alert("Просмотрено довольно мало фильмов");
+    else if (pmdb.count < 31) alert("Вы классический зритель");
+    else if (pmdb.count > 30) alert("Вы киноман");
+    else alert("Произошла ошибка"); 
+}
+
 
 // 3
 
@@ -30,8 +35,10 @@ function showMyDB(pWDB) {
         console.log(pWDB);
     }
 }
+let tolog3 = askAnswer(personalMovieDB);
+let tolog4 = filmsAndYou(personalMovieDB);
 let toLog1 = showMyDB(personalMovieDB);
-console.log(toLog1);
+//console.log(toLog1);
 
 function writeYourGenres(pWDB) {
     for (let i=1; i<4; i++) {
@@ -43,3 +50,5 @@ function writeYourGenres(pWDB) {
 
 let toLog2 = writeYourGenres(personalMovieDB);
 console.log(toLog2);
+
+
